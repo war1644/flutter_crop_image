@@ -288,10 +288,11 @@ class CropController extends ValueNotifier<CropControllerValue> {
   /// You can provide the [quality] used in the resizing operation.
   /// Returns an [Image] asynchronously.
   Future<Image> croppedImage({ui.FilterQuality quality = FilterQuality.high}) async {
-    return Image(
-      image: UiImageProvider(await croppedBitmap(quality: quality)),
-      fit: BoxFit.contain,
-    );
+    return await croppedBitmap(quality: quality);
+    // return Image(
+    //   image: UiImageProvider(await croppedBitmap(quality: quality)),
+    //   fit: BoxFit.contain,
+    // );
   }
 }
 
